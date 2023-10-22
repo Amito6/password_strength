@@ -1,0 +1,32 @@
+
+You can use HTML and JavaScript to set a maximum password length of 14 characters. Here's an example of how you can do it:
+
+html
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Length Limit</title>
+</head>
+<body>
+    <h1>Set a Maximum Password Length</h1>
+    <p>Please enter your password:</p>
+    <input type="password" id="passwordField" oninput="checkPasswordLength()" />
+    <p id="passwordError" style="color: red;"></p>
+
+    <script>
+        function checkPasswordLength() {
+            var passwordField = document.getElementById("passwordField");
+            var passwordError = document.getElementById("passwordError");
+            var maxLength = 14; // Set the maximum password length here
+
+            if (passwordField.value.length > maxLength) {
+                passwordError.innerHTML = "Password is too long. Maximum length is " + maxLength + " characters.";
+                passwordField.value = passwordField.value.substring(0, maxLength); // Truncate the password
+            } else {
+                passwordError.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>
